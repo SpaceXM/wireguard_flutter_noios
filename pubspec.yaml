@@ -26,9 +26,6 @@ flutter:
       android:
         package: billion.group.wireguard_flutter
         pluginClass: WireguardFlutterPlugin
-      ios:
-        pluginClass: WireguardFlutterPlugin
-        sharedDarwinSource: true
       macos:
         pluginClass: WireguardFlutterPlugin
         sharedDarwinSource: true
