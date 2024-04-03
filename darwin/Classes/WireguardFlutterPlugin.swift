@@ -1,7 +1,4 @@
-#if os(iOS)
-import Flutter
-import UIKit
-#elseif os(macOS)
+#if os(macOS)
 import FlutterMacOS
 import Cocoa
 #else
@@ -24,11 +21,7 @@ public class WireguardFlutterPlugin: NSObject, FlutterPlugin {
     }
     
     public func onRegister(_ registrar: FlutterPluginRegistrar){
-        #if os(iOS)
-        let messenger = registrar.messenger()
-        #else
         let messenger = registrar.messenger
-        #endif
         let wireguardMethodChannel = FlutterMethodChannel(name: "billion.group.wireguard_flutter/wgcontrol", binaryMessenger: messenger)
         let vpnStageE = FlutterEventChannel(
       name: "billion.group.wireguard_flutter/wgstage", binaryMessenger: messenger)
@@ -138,8 +131,6 @@ public class WireguardFlutterPlugin: NSObject, FlutterPlugin {
     
 }
 
-
-@available(iOS 15.0, *)
 class VPNUtils {
   var providerManager: NETunnelProviderManager!
   var providerBundleIdentifier: String?
